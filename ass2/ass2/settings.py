@@ -83,9 +83,9 @@ DATABASES = {
       'ENGINE': 'django.db.backends.postgresql_psycopg2',
       'NAME': 'amazon',
       'USER': 'postgres',
-      'PASSWORD': 'yamfilmf',
+      'PASSWORD': 'Thuutri2710',
       'HOST': 'localhost',
-      'PORT': '8989',
+      'PORT': '5432',
    }
 }
 
@@ -130,5 +130,5 @@ USE_TZ = True
 STATIC_URL = '/template/'
 
 STATICFILES_DIRS = [
-    'D:/University/3rd Year/DB/Ass/ass2/amazon/template',
+    'C:/Git/amazon/ass2/amazon/template',
 ]

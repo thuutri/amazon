@@ -38,8 +38,7 @@ class Member(models.Model):
     name = models.CharField(max_length = 100,default = '')
     email = models.CharField(max_length = 100,null = True)
     password = models.CharField (max_length = 20,default='')
-    phone_num = models.IntegerField()
-
+    phone_num = models.CharField(max_length=16,null=True)
     class Meta():
         db_table = 'Member'
 
@@ -91,14 +90,14 @@ class Seller(Member):
 
 class Product(models.Model):
     product_id = models.AutoField(primary_key = True, null = False)
-    stock = models.IntegerField(default = 0,null = False)
-    descript = models.CharField(max_length = 500,default = '')
+    # stock = models.IntegerField(default = 0,null = False)
+    # descript = models.CharField(max_length = 500,default = '')
     product_name = models.CharField(max_length = 200,default = '')
     brand = models.CharField(max_length = 100,null = True)
     price = models.FloatField(default = 0.0)
-    seller = models.ForeignKey(Seller,on_delete = models.CASCADE,default = '')
-    discount = models.IntegerField(null = True)
-    order = models.ManyToManyField(Order,db_table = 'Includes',related_name = 'Order_ID')
+    # seller = models.ForeignKey(Seller,on_delete = models.CASCADE,default = '')
+    # discount = models.IntegerField(null = True)
+    # order = models.ManyToManyField(Order,db_table = 'Includes',related_name = 'Order_ID')
 
     class Meta():
         db_table = 'Product'

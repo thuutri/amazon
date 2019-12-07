@@ -6,6 +6,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages, auth
 
+from django.core.validators import RegexValidator
+import re
+from django.core.exceptions import ValidationError
+
 def homepage(request):
     return render(request = request,template_name='index.html')
 
@@ -16,6 +20,11 @@ def register(request):
         confirm_password = request.POST['confirm-password']
         email = request.POST['email']
         phone_number = request.POST['phone-number']
+        regex=re.compile(r'^0\d{9}$')
+        print(re.match(regex,str(phone_number)))
+        if not re.match(regex,str(phone_number)):
+            print("adafasd")
+            raise TypeError()
 
         try:
             check_username = Member.objects.get(name = username)
@@ -47,3 +56,33 @@ def login(request):
 def logout(request):
     request.user.id = None
     return render(request = request, template_name='index.html')
+
+def cart(request):
+    infor = {
+        'products': Product.objects.all(),
+    }
+    return render(request,'cart.html', infor)
+
+def single_product(request):
+    if request.method=='GET':
+        item=request.GET
+    print(item)
+    infor = {
+        'product': item,
+    }
+    return render(request, 'single-product.html',infor)
+
+def category(request):
+    infor = {
+        'products': Product.objects.all(),
+    }
+    return render(request, 'category.html',infor)
+
+def sell_product(request):
+    return render(request, 'sell_product.html')
+
+def checkout_shipment(request):
+    infor = {
+        'products': Product.objects.all(),
+    }
+    return render(request,'checkout_shipment.html',infor)

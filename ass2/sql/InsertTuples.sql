@@ -106,3 +106,18 @@ Shaft measures approximately low-top from arch', 'adidas Lux Clima Shoes', 'Adid
     (100, '21 Inch Skeleton Double Axe Standard;One Size
 \n- NEW - FREE SHIPPING!', 'Skeleton Double Axe', 'RG Costumes', 3.72, 0, (select account_id from Seller where comp_name= 'Weapons Shop'));
     
+
+--Table: Buyer_card
+INSERT INTO Buyer_Card(card_number, card_expr_date, card_holder_name, account_id) VALUES
+    ('1323136587554621', '2023-05-05', 'Hoang Dinh Khang', (select account_id from "Member" where "name" = 'Hoang Dinh Khang')),
+    ('4513565165641365', '2021-06-06', 'Nguyen Duong Minh Tam Dat', (select account_id from "Member" where "name"='Nguyen Duong Minh Tam Dat')),
+    ('4384606549841655', '2021-07-07', 'Tran Duc Luan', (select account_id from "Member" where "name"='Tran Duc Luan')),
+    ('6216216132216516', '2021-08-08', 'Cap Dang Xuan Kiet', (select account_id from "Member" where "name"='Cap Dang Xuan Kiet')),
+    ('8983516411351651', '2021-09-09', 'Le Duc Anh Tai', (select account_id from "Member" where "name"='Le Duc Anh Tai')),
+    ('7945651656132513', '2021-10-10', 'Vo Khac Thanh', (select account_id from "Member" where "name"='Vo Khac Thanh')),
+    ('0130612065056460', '2021-11-11', 'Nguyen Trong Trung', (select account_id from "Member" where "name"='Nguyen Trong Trung')),
+    ('0313065650216052', '2021-12-12', 'Nguyen Viet Long', (select account_id from "Member" where "name"='Nguyen Viet Long')),
+    ('1314603460610283', '2021-01-01', 'Tran Huu Tri', (select account_id from "Member" where "name"='Tran Huu Tri')),
+    ('4812056413206546', '2021-02-02', 'Nguyen Vu Hoang Phuc', (select account_id from "Member" where "name"='Nguyen Vu Hoang Phuc'));
+    
+

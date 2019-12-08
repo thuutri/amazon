@@ -48,3 +48,16 @@ INSERT INTO Seller(phone_num, addr, country, card_num, card_expr_date, card_hold
     ('0167134848', '3/2 Street, District 11, HCM city', 'Vietnam', '8136845351653154', '2022-06-01', 'Tran Duc Luan', '840000', 'NOWSG', (select account_id from "Member" where "name" = 'Tran Duc Luan')),
     ('0185179444', 'Cach Mang Thang 8 street, District 3, HCM city', 'Vietnam', '0000354615445465', '2022-07-12', 'Nguyen Vu Hoang Phuc', '840000', 'TSUNSG', (select account_id from "Member" where "name" = 'Nguyen Vu Hoang Phuc'));
     
+
+--Table: Friend
+INSERT INTO Friend(account_id, faccount_id) VALUES
+    ((select account_id from "Member" where "name"= 'Nguyen Vu Hoang Phuc'), (select account_id from "Member" where "name"= 'Hoang Dinh Khang')),
+    ((select account_id from "Member" where "name"= 'Nguyen Viet Long'), (select account_id from "Member" where "name"= 'Nguyen Duong Minh Tam Dat')),
+    ((select account_id from "Member" where "name"= 'Cap Dang Xuan Kiet'), (select account_id from "Member" where "name"= 'Vo Khac Thanh')),
+    ((select account_id from "Member" where "name"= 'Nguyen Trong Trung'), (select account_id from "Member" where "name"= 'Tran Duc Luan')),
+    ((select account_id from "Member" where "name"= 'Tran Huu Tri'), (select account_id from "Member" where "name"= 'Hoang Dinh Khang')),
+    ((select account_id from "Member" where "name"= 'Le Duc Anh Tai'), (select account_id from "Member" where "name"= 'Nguyen Viet Long')),
+    ((select account_id from "Member" where "name"= 'Nguyen Duong Minh Tam Dat'), (select account_id from "Member" where "name"= 'Nguyen Trong Trung')),
+    ((select account_id from "Member" where "name"= 'Hoang Dinh Khang'), (select account_id from "Member" where "name"= 'Cap Dang Xuan Kiet')),
+    ((select account_id from "Member" where "name"= 'Tran Duc Luan'), (select account_id from "Member" where "name"= 'Nguyen Viet Long')),
+    ((select account_id from "Member" where "name"= 'Vo Khac Thanh'), (select account_id from "Member" where "name"= 'Tran Huu Tri'));

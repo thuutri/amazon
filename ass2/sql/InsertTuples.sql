@@ -61,3 +61,48 @@ INSERT INTO Friend(account_id, faccount_id) VALUES
     ((select account_id from "Member" where "name"= 'Hoang Dinh Khang'), (select account_id from "Member" where "name"= 'Cap Dang Xuan Kiet')),
     ((select account_id from "Member" where "name"= 'Tran Duc Luan'), (select account_id from "Member" where "name"= 'Nguyen Viet Long')),
     ((select account_id from "Member" where "name"= 'Vo Khac Thanh'), (select account_id from "Member" where "name"= 'Tran Huu Tri'));
+
+
+--Table: Product
+INSERT INTO Product(stock, descript, product_name, brand, price, discount, account_id) VALUES
+    (100, 'Leather and Synthetic
+\nImported
+\nRubber sole
+\nPlatform measures approximately 1 inches inches
+\nSturdy lace-up sneaker featuring cushioned midsole and two-tone heel pull
+\nPadded tongue and collar. Soft fabric shoe lining. Contrast colored mesh fabric panels for cooling effect
+\nLace-up vamp for centralized support
+\nMemory Foam cushioned comfort insole
+\nDLites super lightweight shock absorbing athletic midsole', 'Skechers Womens DLites', 'Skechers', 29.99, 50, (select account_id from Seller where comp_name = 'Hana Shop')),
+    (100, 'Rubber sole
+\nShaft measures approximately low-top from arch
+\nMens shoes with modern style
+\nRegular fit; Hugs the foot
+\nKnit upper for breathability
+\nRubber outsole for traction
+\nEVA midsole for lightweight cushioning', 'adidas Run Knit Shoes', 'Adidas', 60.0, 20, (select account_id from Seller where comp_name= 'Hana Shop')),
+    (100, 'Rubber sole
+\nEva midsole and outsole for lightweight cushioning. Knit upper with sock like feel', 'adidas Tennis Hu Shoes', 'Adidas', 140.0, 40, (select account_id from Seller where comp_name= 'Hana Shop')),
+    (100, 'Rubber sole
+Shaft measures approximately low-top from arch', 'adidas Lux Clima Shoes', 'Adidas', 120.0, 60, (select account_id from Seller where comp_name= 'Hana Shop')),
+    (100, 'Rubber sole
+\nShaft measures approximately low-top from arch
+\nboost is our most responsive cushioning ever: The more energy you give, the more you get
+\nMolded EVA midsole plug on medial side for NMD aesthetic; Four-language branding on medial EVA insert', 'adidas NMD_r2 Shoes', 'Adidas', 230.0, 50, (select account_id from Seller where comp_name= 'Hana Shop')),
+    (100, 'Rubber sole
+\nShaft measures approximately low-top from arch
+\nThe Flashback Runner gives a nod to the 70s runners with a fresh street-ready vibe for today.', 'adidas FLB_Runner Shoes', 'Adidas', 149.0, 95, (select account_id from Seller where comp_name= 'Hana Shop')),
+    (100, 'Made of Plastic; Fake Sickle Weapon, Womens, Kids or Mens Grim Reaper Costume Accessory
+\nPieces Twist Together for Quick Dress Up & Twist Apart for Easy Storage
+\nLightweight & Perfect for Any Adult or Any Age Kids Halloween Costume', 'Grim Reapers Scythe', 'Sickle Weapon', 6.5, 0, (select account_id from Seller where comp_name= 'Weapons Shop')),
+    (100, 'Child size costume Accessory Legolas sword
+\nInspired by the hit Hobbit movies and officially licensed by Warner Bros
+\nLight weight molded plastic weapon fun all year round but not meant for battle
+\nSearch The Hobbit and Rubies for weapons, wigs, costumes and more - everything you need to complete that perfect costume', 'Long Blade Sword', 'The Rubies', 13.99, 10, (select account_id from Seller where comp_name= 'Weapons Shop')),
+    (100, 'Twin blades extend out of either side of the haft in a crescent design
+\nFour-flanged topper, designed for extra weight and design
+\nComes complete with a display plaque', 'Battle axe', 'BladeUSA', 30.49, 10, (select account_id from Seller where comp_name= 'Weapons Shop')),
+    (100, 'Made of Plastic', 'Knife', 'Forum Novelties', 2, 0, (select account_id from Seller where comp_name= 'Weapons Shop')),
+    (100, '21 Inch Skeleton Double Axe Standard;One Size
+\n- NEW - FREE SHIPPING!', 'Skeleton Double Axe', 'RG Costumes', 3.72, 0, (select account_id from Seller where comp_name= 'Weapons Shop'));
+    

@@ -203,7 +203,7 @@ CREATE TABLE Question(
 	--serial
 	question_id			SERIAL						NOT NULL,
 	content				text						NOT NULL,
-	question_rate		smallint					NOT NULL CHECK(question_rate >= 0 AND question_rate <= 5),
+	question_rate		smallint						NOT NULL,
 	account_id			integer						REFERENCES "Member"(account_id),
 	product_id			integer						REFERENCES Product(product_id),
 	PRIMARY KEY(question_id)

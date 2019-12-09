@@ -396,3 +396,32 @@ INSERT INTO Votes(question_id, account_id, isUpVote) VALUES
     ('16', (select account_id from "Member" where email = 'thhtri@gmail.com'), TRUE),
     ('17', (select account_id from "Member" where email = 'hdkhang1504@gmail.com'), TRUE);
     
+
+--Table: Review
+INSERT INTO Review(cmt, rating, account_id, product_id) VALUES
+    ('I got these shoes for work. I used them for about ten weeks with an average of 25 hours a week. They fell apart rather quickly. If you are looking for a quality shoe for work this is not it.',
+        1, (select account_id from "Member" where email = 'hdkhang1504@gmail.com'), (select product_id from Product where product_name = 'adidas Run Knit Shoes')),
+    ('Shoe fits comfortably, very cheaply made though. After 5 weeks, the outside of the both shoes blew out.',
+        1, (select account_id from "Member" where email = 'vkthanh@gmail.com'), (select product_id from Product where product_name = 'adidas FLB_Runner Shoes')),
+    ('I have tried many work shoes with no success in finding comfort. Before purchasing this shoe, I went to the outlet in the mall to try on the shoe. It seemed comfy and the width was too wide for my feet. So I decided to order via Amazon the Medium that I also tried at the outlet, it arrived very fast as always...thanks Amazon. I bent the shoe for some time to break in the stiffness.',
+        3, (select account_id from "Member" where email = 'cdxkiet@gmail.com'), (select product_id from Product where product_name = 'adidas NMD_r2 Shoes')),
+    ('This shoe is the pinnacle of technology for slip resistant shoes.
+If Michael Jordan and LeBron James were both in the restaurant industry. Then LeBron wore these shoes, he would actually be better than Michael Jordan.',
+        5, (select account_id from "Member" where email = 'thhtri@gmail.com'), (select product_id from Product where product_name = 'Skechers Womens DLites')),
+    ('A great value for a reasonably comfortable, very durable pair of shoes!',
+        4, (select account_id from "Member" where email = 'nttrung@gmail.com'), (select product_id from Product where product_name = 'adidas FLB_Runner Shoes')),
+    ('3.0 out of 5 starsDecent work shoe but get the Keystone instead if you can',
+        3, (select account_id from "Member" where email = 'ndmtdat@gmail.com'), (select product_id from Product where product_name = 'adidas Lux Clima Shoes')),
+    ('I bought these shoes for my husband in April. He said that they are comfortable to wear, which is important and he is a handyman for a rental company, doing repairs on summer beach houses.',
+        2, (select account_id from "Member" where email = 'hdkhang1504@gmail.com'), (select product_id from Product where product_name = 'adidas NMD_r2 Shoes')),
+    ('5.0 out of 5 starsGREAT SHOE FOR OLD WORKING FEET',
+        5, (select account_id from "Member" where email = 'tdluan@gmail.com'), (select product_id from Product where product_name = 'adidas Run Knit Shoes')),
+    ('Great value piece for your wall.',
+        5, (select account_id from "Member" where email = 'ldatai@gmail.com'), (select product_id from Product where product_name = 'Long Blade Sword')),
+    ('Just what we were looking for to go with our family crest. Very well made and heavy. No doubt in my mind these could be used in real combat if necessary.These are not plastic toys. If your looking for a beautiful axe This is the real deal.',
+        5, (select account_id from "Member" where email = 'thhtri@gmail.com'), (select product_id from Product where product_name = 'Skeleton Double Axe')),
+    ('Exceeded all the expectations',
+        3, (select account_id from "Member" where email = 'nvhphuc@gmail.com'), (select product_id from Product where product_name = 'Battle axe')),
+    ('Very nice display piece.',
+        4, (select account_id from "Member" where email = 'cdxkiet@gmail.com'), (select product_id from Product where product_name = 'Battle axe'));
+    

@@ -2,9 +2,10 @@
 CREATE TABLE "Member" (
 	account_id SERIAL NOT NULL PRIMARY KEY,
 	"name" VARCHAR(100) NOT NULL,
-	email VARCHAR(100),
+	email VARCHAR(100) NOT NULL,
 	"password" VARCHAR(20) NOT NULL,
-	phone_num VARCHAR(20)
+	phone_num VARCHAR(20),
+	UNIQUE (email)
 );
 
 CREATE TABLE Buyer (
@@ -186,6 +187,7 @@ CREATE TABLE "Contains"(
 CREATE TABLE Includes(
 	product_id			integer						REFERENCES Product(product_id),
 	order_id			integer						REFERENCES "Order"(order_id),
+	quantity			integer						CHECK (quantity >= 0),
 	PRIMARY KEY	(product_id, order_id)
 );
 

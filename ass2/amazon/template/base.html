@@ -21,6 +21,8 @@
     <!-- flaticon CSS -->
     <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
 
+    <link rel="stylesheet" href="{% static 'css/lightslider.min.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
@@ -263,6 +265,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             window.location = '/register-seller/';
         }
     }
+    function goCheckout_payment(){ window.location='/checkout_payment/';}
     function goContact(){ window.location = '/contact/';}
     function goLogin() { window.location = '/login/';}
     function goCart() { window.location = '/cart/'; }

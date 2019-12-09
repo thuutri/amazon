@@ -131,13 +131,16 @@
                                         </ul>
                                     </div>
                                     <div class="category_product_text">
-                                        <a href="{% url "amazon:single_product"%} value="{{product}}" "><h5>{{product.product_name}}</h5></a>
-                                        <p>${{product.price}}</p>
+                                        <form action="{% url 'amazon:single_product'%}" method="post">
+                                            {% csrf_token %} 
+                                            <button style="background: none!important; border:none; padding: 0!important;" formaction="{% url 'amazon:single_product'%}"name="s_product" value="{{product.product_id}}" ><h5>{{product.product_name}}</h5></button>
+                                            <p>${{product.price}}</p>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
+                        {% endfor %}    
                         {% comment %} 
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_category_product">

@@ -22,14 +22,14 @@
               </tr>
             </thead>
             <tbody>
-            <form class="form-group">
+            <form class="form-group" >
             {% for product in products %}
               <tr>
                 <td>
                   <div class="media">
                     <div class="d-flex">
                       {% get_static_prefix as STATIC_URL %}
-                      <img src="{{STATIC_URL}}img/arrivel/arrivel_{{forloop.counter}}.png" alt="" />
+                      <img src="{{STATIC_URL}}img/product_details/prodect_details_{{forloop.counter}}.png" alt="" />
                     </div>
                     <div class="media-body">
                       <p>Minimalistic shop for multipurpose use</p>
@@ -41,11 +41,12 @@
                 </td>
                 <td>
                   <div class="product_count">
-                      <input class="form-control product-quant" data-order="{{forloop.counter0}}" type="number" value="1" min="0" max="10">
+                      <input class="form-control product-quant" data-order="{{forloop.counter0}}" type="number" value={{input_num}} min="0" max="10">
                   </div>
                 </td>
                 <td>
-                  <h5 id="final-price">${{product.price}}</h5>
+                  {% load mathfilters %}
+                  <h5 id="final-price">${{product.price|mul:input_num}}</h5>
                 </td>
               </tr>
             {% endfor%}

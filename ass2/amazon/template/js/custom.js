@@ -40,6 +40,7 @@
     best_product_slider.owlCarousel({
       items: 4,
       loop: true,
+
       dots: false,
       autoplay: true,
       autoplayHoverPause: true,
@@ -117,7 +118,6 @@
   $(document).ready(function () {
     $('select').niceSelect();
   });
-
   // menu fixed js code
   $(window).scroll(function () {
     var window_top = $(window).scrollTop() + 1;

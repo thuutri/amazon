@@ -11,7 +11,10 @@ import re
 from django.core.exceptions import ValidationError
 
 def homepage(request):
-    return render(request = request,template_name='index.html')
+    infor = {
+        'products': Product.objects.all(),
+    }
+    return render(request,'index.html',infor)
 
 def register(request):
     if request.method == 'POST':
@@ -58,17 +61,29 @@ def logout(request):
     return render(request = request, template_name='index.html')
 
 def cart(request):
+    if request.method=="POST":
+        p_id=int(request.POST['pr_id'])
+        input_num=int(request.POST['input_num'])
+    lproduct=List.objects.get(account=1)
+    product=Product.objects.get(product_id=p_id)
+    addproduct=ConsistOf(product=product,_list=lproduct)
+    addproduct.save()
+    print(addproduct)
+    products=[]
+    for x in ConsistOf.objects.all():
+        products.append(Product.objects.get(product_id=x.product_id))
+    print(products)
     infor = {
-        'products': Product.objects.all(),
+        'products': products,
+        'input_num': input_num,
     }
     return render(request,'cart.html', infor)
 
 def single_product(request):
-    if request.method=='GET':
-        item=request.GET
-    print(item)
+    if request.method=="POST":
+        p_id=request.POST['s_product']
     infor = {
-        'product': item,
+        'product': Product.objects.get(product_id=p_id),
     }
     return render(request, 'single-product.html',infor)
 
@@ -81,8 +96,39 @@ def category(request):
 def sell_product(request):
     return render(request, 'sell_product.html')
 
+
 def checkout_shipment(request):
     infor = {
         'products': Product.objects.all(),
     }
     return render(request,'checkout_shipment.html',infor)
+
+def checkout_payment(request):
+    products=[]
+    for x in ConsistOf.objects.all():
+        products.append(Product.objects.get(product_id=x.product_id))
+    stotal=0
+    for x in products:
+        stotal=stotal+x.price
+    total=stotal+50
+    infor={
+        'products':products,
+        'stotal':stotal,
+        'total':total,
+    }
+    return render(request,'checkout_payment.html',infor)
+
+def confirmation(request):
+    products=[]
+    for x in ConsistOf.objects.all():
+        products.append(Product.objects.get(product_id=x.product_id))
+    stotal=0
+    for x in products:
+        stotal=stotal+x.price
+    total=stotal+50
+    infor={
+        'products':products,
+        'stotal':stotal,
+        'total':total,
+    }
+    return render(request,'confirmation.html',infor)

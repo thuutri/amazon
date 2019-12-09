@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #'amazon.apps.AmazonConfig',
     'amazon',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

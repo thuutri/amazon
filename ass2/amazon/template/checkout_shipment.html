@@ -22,7 +22,8 @@
             <h3>Billing Details</h3>
             <hr>
             <div class="col-md-8">
-            <form class="form-group" action="#" method="POST">
+            <form class="form-group" action="checkout_payment/" method="post">
+              {% csrf_token %}
               <p name="name"><strong> Vo Khac Thanh</strong> </p>
               <p name="address-1">Domitory Zone A - Vietnam National University </p>
               <p name="address-2"></p>
@@ -31,13 +32,14 @@
               <p name="country">Vietnam</p>
               <p name="phone">Phone: 0399505707 </p>
               <br>
-              <button type="submit" class="btn_3" href="#">Deliver to this address
+              <button type="submit" class="btn_3" >Deliver to this address
             </form>
             </div>
             <hr>
               <div class="creat_account">
                 <h3>Add a new address</h3>
                 <form class="row contact_form" action="#" method="post">
+                  {% csrf_token %}
                   <div class="col-md-12 form-group p_star">
                     <input type="text" class="form-control" id="first" name="full-name" required />
                     <span class="placeholder" data-placeholder="First name"></span>
@@ -72,7 +74,7 @@
                   <div class="col-md-12 form-group">
                     <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
                   </div>
-                   <button type="submit" class="btn_3" href="#">Deliver to the new address
+                   <button type="submit" class="btn_3" onClick='goCheckout_payment()">Deliver to the address
                 </form>
               </div>
             </div>

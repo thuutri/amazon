@@ -5618,7 +5618,7 @@ ul {
 /* line 2108, /Applications/MAMP/htdocs/palash/cl/august 2019/202. Shop/202 shop html/sass/_product.scss */
 .s_product_text .btn_3:hover {
   color: #2f7dfc;
-  background-color: #fff;
+  background-color: #000;
   box-shadow: -14.142px 14.142px 20px 0px rgba(0, 0, 0, 0.1);
   border: 1px solid #fff;
 }

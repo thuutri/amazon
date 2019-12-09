@@ -39,7 +39,7 @@
               <h3>{{ product.product_name }}</h3>
             </a>
             <div id='product_price'>  
-              <h2>{{ product.product_id}}</h2>
+              <h2>{{ product.price}}</h2>
             </div>
             <ul class="list">
               <li>
@@ -54,15 +54,20 @@
                 Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that can make your interior look awesome, and at the same time.
             </p>
             <div class="card_area">
-              <div class="product_count d-inline-block">
-                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
-                <span class="number-increment"> <i class="ti-plus"></i></span>
-              </div>
-              <div class="add_to_cart">
-                  <a onclick="goCart()" class="btn_3">add to cart</a>
-                  <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
-              </div>
+              <form action="{% url 'amazon:cart'%}" method="post">
+                    {% csrf_token %} 
+                <div class="product_count d-inline-block">
+                  <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+                  <input class="input-number" name="input_num" type="number" value="1" min="0" max="10">
+                  <span class="number-increment"> <i class="ti-plus"></i></span>
+                </div>
+                <div class="add_to_cart">
+                    
+                      <button  class="btn_3" formaction="{% url 'amazon:cart'%}" name="pr_id" type="submit" value="{{product.product_id}}">add to cart</button>
+                      <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+                  
+                </div>
+               </form>
               <div class="social_icon">
                   <a href="#" class="fb"><i class="ti-facebook"></i></a>
                   <a href="#" class="tw"><i class="ti-twitter-alt"></i></a>
@@ -189,7 +194,7 @@
             <div class="col-lg-6">
               <div class="review_box">
                 <h4>Post a question</h4>
-                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                <form class="row contact_form" action="contact_process.php" method="" id="contactForm"
                   novalidate="novalidate">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -335,7 +340,7 @@
             <div class="col-lg-6">
               <div class="review_box">
                 <h4>Add a Review</h4>
-                <form class="row contact_form" action="contact_process.php" method="post" novalidate="novalidate">
+                <form class="row contact_form" action="contact_process.php" method="" novalidate="novalidate">
                  <div class="col-md-3">
                   Your Rating:
                  </div>

@@ -424,4 +424,74 @@ If Michael Jordan and LeBron James were both in the restaurant industry. Then Le
         3, (select account_id from "Member" where email = 'nvhphuc@gmail.com'), (select product_id from Product where product_name = 'Battle axe')),
     ('Very nice display piece.',
         4, (select account_id from "Member" where email = 'cdxkiet@gmail.com'), (select product_id from Product where product_name = 'Battle axe'));
-    
+
+
+-- Table: Product_picture
+
+INSERT INTO Product_picture (product_id, picture) VALUES ((select product_id from Product where product_name = 'adidas Run Knit Shoes' limit 1), 'adidas_rks_1.jpeg'),
+	((select product_id from Product where product_name = 'adidas Run Knit Shoes' limit 1), 'adidas_rks_2.jpeg'),
+	((select product_id from Product where product_name = 'adidas Run Knit Shoes' limit 1), 'adidas_rks_3.jpeg'),	
+	((select product_id from Product where product_name = 'adidas Lux Clima Shoes' limit 1), 'adidas_lcs_1.jpeg'),
+	((select product_id from Product where product_name = 'adidas Lux Clima Shoes' limit 1), 'adidas_lcs_2.jpeg'),
+	((select product_id from Product where product_name = 'adidas Lux Clima Shoes' limit 1), 'adidas_lcs_3.jpeg'),
+	((select product_id from Product where product_name = 'adidas Lux Clima Shoes' limit 1), 'adidas_lcs_4.jpeg'),
+	((select product_id from Product where product_name = 'adidas Lux Clima Shoes' limit 1), 'adidas_lcs_5.jpeg'),
+	((select product_id from Product where product_name = 'adidas NMD_r2 Shoes' limit 1), 'adidas_r2_1.png'),
+	((select product_id from Product where product_name = 'adidas NMD_r2 Shoes' limit 1), 'adidas_r2_2.png'),
+	((select product_id from Product where product_name = 'adidas NMD_r2 Shoes' limit 1), 'adidas_r2_3.png'),
+	((select product_id from Product where product_name = 'adidas FLB_Runner Shoes' limit 1), 'adidas_flbrs_2.png'),
+	((select product_id from Product where product_name = 'adidas FLB_Runner Shoes' limit 1), 'adidas_flbrs_1.jpg'),
+	((select product_id from Product where product_name = 'Grim Reapers Scythe' limit 1), 'scy1.jpg'),
+	((select product_id from Product where product_name = 'Grim Reapers Scythe' limit 1), 'scy3.png'),
+	((select product_id from Product where product_name = 'Long Blade Sword' limit 1), 'lbs1.jpeg'),
+	((select product_id from Product where product_name = 'Long Blade Sword' limit 1), 'lbs2.png'),
+	((select product_id from Product where product_name = 'Long Blade Sword' limit 1), 'long_battle_1.jpg'),
+	((select product_id from Product where product_name = 'Long Blade Sword' limit 1), 'long_battle_2.png'),
+	((select product_id from Product where product_name = 'Battle axe' limit 1), 'axe.png'),
+	((select product_id from Product where product_name = 'Knife' limit 1), 'knife_toy1.jpg'),
+	((select product_id from Product where product_name = 'Skeleton Double Axe' limit 1), 'ske_double_axe.png'),
+	((select product_id from Product where product_name = 'Skeleton Double Axe' limit 1), 'skele_double_axe.jpg'),
+	((select product_id from Product where product_name = 'adidas Tennis Hu Shoes' limit 1), 'ad_thshoes.png');
+
+-- Table: List
+
+'hdkhang1504@gmail.com'
+'vkthanh@gmail.com'
+'thhtri@gmail.com'
+'cdxkiet@gmail.com'
+'ldatai@gmail.com'
+'ndmtdat@gmail.com'
+'nttrung@gmail.com'
+'tdluan@gmail.com'
+'nvlong@gmail.com'
+'nvhphuc@gmail.com'
+INSERT INTO List(account_id, privacy, list_type) VALUES ((select account_id from "Member" where email = 'hdkhang1504@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'vkthanh@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'thhtri@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'cdxkiet@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'ldatai@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'ndmtdat@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'nttrung@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'tdluan@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'nvlong@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'nvhphuc@gmail.com'), 'true', '1'),
+	((select account_id from "Member" where email = 'nvhphuc@gmail.com'), 'false', '2'),
+	((select account_id from "Member" where email = 'cdxkiet@gmail.com'), 'false', '3'),
+	((select account_id from "Member" where email = 'hdkhang1504@gmail.com'), 'true', '2'),
+	((select account_id from "Member" where email = 'ndmtdat@gmail.com'), 'true', '3'),
+	((select account_id from "Member" where email = 'nvlong@gmail.com'), 'false', '2'),
+	((select account_id from "Member" where email = 'vkthanh@gmail.com'), 'false', '3');
+
+
+-- Table: ConsistOf
+
+INSERT INTO ConsistOf (product_id, account_id, list_name) VALUES ((select product_id from Product where product_name = 'adidas Run Knit Shoes' limit 1), (select account_id from Buyer natural join "Member" where email = 'vkthanh@gmail.com'), (select list_name from List where account_id in (select account_id from Buyer natural join "Member" where email = 'vkthanh@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'Skeleton Double Axe' limit 1), (select account_id from Buyer natural join "Member" where email = 'nvhphuc@gmail.com'), (select list_name from List where list_type = '2' AND account_id in (select account_id from Buyer natural join "Member" where email = 'nvhphuc@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'adidas NMD_r2 Shoes' limit 1), (select account_id from Buyer natural join "Member" where email = 'ldatai@gmail.com'), (select list_name from List where account_id in (select account_id from Buyer natural join "Member" where email = 'ldatai@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'Long Blade Sword' limit 1), (select account_id from Buyer natural join "Member" where email = 'thhtri@gmail.com'), (select list_name from List where account_id in (select account_id from Buyer natural join "Member" where email = 'thhtri@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'adidas Run Knit Shoes' limit 1), (select account_id from Buyer natural join "Member" where email = 'nvlong@gmail.com'), (select list_name from List where list_type = '2'  AND account_id in (select account_id from Buyer natural join "Member" where email = 'nvlong@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'Long Blade Sword' limit 1), (select account_id from Buyer natural join "Member" where email = 'cdxkiet@gmail.com'), (select list_name from List where account_id in (select account_id from Buyer natural join "Member" where email = 'cdxkiet@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'Skeleton Double Axe' limit 1), (select account_id from Buyer natural join "Member" where email = 'hdkhang1504@gmail.com'), (select list_name from List where list_type = '2'  AND account_id in (select account_id from Buyer natural join "Member" where email = 'hdkhang1504@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'adidas NMD_r2 Shoes' limit 1), (select account_id from Buyer natural join "Member" where email = 'vkthanh@gmail.com'), (select list_name from List where list_type = '3'  AND account_id in (select account_id from Buyer natural join "Member" where email = 'vkthanh@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'Long Blade Sword' limit 1), (select account_id from Buyer natural join "Member" where email = 'tdluan@gmail.com'), (select list_name from List where account_id in (select account_id from Buyer natural join "Member" where email = 'tdluan@gmail.com') limit 1)),
+	((select product_id from Product where product_name = 'Grim Reapers Scythe' limit 1), (select account_id from Buyer natural join "Member" where email = 'nttrung@gmail.com'), (select list_name from List where account_id in (select account_id from Buyer natural join "Member" where email = 'nttrung@gmail.com') limit 1));

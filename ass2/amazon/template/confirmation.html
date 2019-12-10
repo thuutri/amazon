@@ -79,9 +79,10 @@
               </thead>
               <tbody>
               {% for product in products%}
+              {% load get_index %}
                 <tr>
                   <th colspan="2"><span>{{product.product_name}}</span></th>
-                  <th>02</th>
+                  <th>{{ quantity|get_index:forloop.counter0 }}</th>
                   <th> <span>${{product.price}}</span></th>
                 </tr>
               {% endfor %}
@@ -116,7 +117,10 @@
       </div>
       <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4"><a href="{% url 'amazon:homepage'%}"><button class="btn_3"> Accept & Keep Shopping </button></a></div>
+        <div class="col-md-4 col-centered text-center"><a href="{% url 'amazon:homepage'%}"><button class="btn_3"> Accept & Keep Shopping </button></a></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 "></div>
+        <div class="col-md-4 col-centered text-center" style="padding-top: 25px;"><a href="{% url 'amazon:homepage'%}"><form method="post">{% csrf_token %}<button class="btn_3" name="check" value="delete" formaction="{% url 'amazon:homepage'%}"> Cancel </button></form></a></div>
         <div class="col-md-4"></div>
       </div>
 

@@ -41,12 +41,13 @@
                 </td>
                 <td>
                   <div class="product_count">
-                      <input class="form-control product-quant" data-order="{{forloop.counter0}}" type="number" value={{input_num}} min="0" max="10">
+                  {% load get_index %}
+                      <input class="form-control product-quant" data-order="{{forloop.counter0}}" type="number" value={{quantity|get_index:forloop.counter0}} min="0" max="10">
                   </div>
                 </td>
                 <td>
                   {% load mathfilters %}
-                  <h5 id="final-price">${{product.price|mul:input_num}}</h5>
+                  <h5 id="final-price">${{ totalprice|get_index:forloop.counter0 }}</h5>
                 </td>
               </tr>
             {% endfor%}

@@ -18,17 +18,19 @@
         <div class="col-lg-5">
           <div class="product_slider_img">
             <div id="vertical">
-              <div data-thumb="{% static 'img/product_details/prodect_details_1.png' %}">
-                <img src="{% static 'img/product_details/prodect_details_1.png' %}" />
+            {% get_static_prefix as STATIC_URL %}
+            {% load mathfilters %}
+              <div data-thumb="{{STATIC_URL}}img/category/category_{{product.product_id}}.png ">
+                <img src="{{STATIC_URL}}img/category/category_{{product.product_id}}.png " />
               </div>
-              <div data-thumb="{% static 'img/product_details/prodect_details_2.png' %}">
-                <img src="{% static 'img/product_details/prodect_details_2.png' %}"/>
+              <div data-thumb="{{STATIC_URL}}img/category/category_{{product.product_id|sub:1}}.png ">
+                <img src="{{STATIC_URL}}img/category/category_{{product.product_id|sub:1}}.png "/>
               </div>
-              <div data-thumb="{% static 'img/product_details/prodect_details_3.png' %}">
-                <img src="{% static 'img/product_details/prodect_details_3.png' %}" />
+              <div data-thumb="{{STATIC_URL}}img/category/category_{{product.product_id|add:1}}.png">
+                <img src="{{STATIC_URL}}img/category/category_{{product.product_id|add:1}}.png" />
               </div>
-              <div data-thumb="{% static 'img/product_details/prodect_details_4.png' %}">
-                <img src="{% static 'img/product_details/prodect_details_4.png' %}" />
+              <div data-thumb="{{STATIC_URL}}img/arrivel/arrivel_{{product.product_id}}.png">
+                <img src="{{STATIC_URL}}img/arrivel/arrivel_{{product.product_id}}.png"/>
               </div>
             </div>
           </div>

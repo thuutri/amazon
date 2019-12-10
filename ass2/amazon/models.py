@@ -171,6 +171,7 @@ class List(models.Model):
 
 class ConsistOf(models.Model):
     product = models.ForeignKey(Product,on_delete= models.CASCADE, default = 0)
+    quantity = models.IntegerField(default=1)
     _list = models.ForeignKey(List,on_delete = models.CASCADE, default = 0)
    
     class Meta():

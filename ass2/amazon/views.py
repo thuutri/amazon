@@ -11,6 +11,9 @@ import re
 from django.core.exceptions import ValidationError
 
 def homepage(request):
+    if request.method=='POST':
+        if request.POST['check']=='delete':
+            ConsistOf.objects.all().delete()
     infor = {
         'products': Product.objects.all(),
     }
@@ -61,21 +64,27 @@ def logout(request):
     return render(request = request, template_name='index.html')
 
 def cart(request):
+    p_id=-1
     if request.method=="POST":
         p_id=int(request.POST['pr_id'])
         input_num=int(request.POST['input_num'])
     lproduct=List.objects.get(account=1)
-    product=Product.objects.get(product_id=p_id)
-    addproduct=ConsistOf(product=product,_list=lproduct)
-    addproduct.save()
-    print(addproduct)
+    if p_id!=-1:
+        product=Product.objects.get(product_id=p_id)
+        addproduct=ConsistOf(product=product,_list=lproduct,quantity=input_num)
+        addproduct.save()
     products=[]
+    quantity=[]
+    totalprice=[]
     for x in ConsistOf.objects.all():
-        products.append(Product.objects.get(product_id=x.product_id))
-    print(products)
+        y=Product.objects.get(product_id=x.product_id)
+        products.append(y)
+        quantity.append(x.quantity)
+        totalprice.append(x.quantity*y.price)
     infor = {
         'products': products,
-        'input_num': input_num,
+        'quantity':quantity,
+        'totalprice':totalprice,
     }
     return render(request,'cart.html', infor)
 
@@ -105,14 +114,18 @@ def checkout_shipment(request):
 
 def checkout_payment(request):
     products=[]
+    quantity=[]
     for x in ConsistOf.objects.all():
-        products.append(Product.objects.get(product_id=x.product_id))
+        y=Product.objects.get(product_id=x.product_id)
+        products.append(y)
+        quantity.append(x.quantity)
     stotal=0
-    for x in products:
-        stotal=stotal+x.price
+    for x in range(len(products)):
+        stotal=stotal+products[x].price*quantity[x]
     total=stotal+50
     infor={
         'products':products,
+        'quantity':quantity,
         'stotal':stotal,
         'total':total,
     }
@@ -120,15 +133,20 @@ def checkout_payment(request):
 
 def confirmation(request):
     products=[]
+    quantity=[]
     for x in ConsistOf.objects.all():
-        products.append(Product.objects.get(product_id=x.product_id))
+        y=Product.objects.get(product_id=x.product_id)
+        products.append(y)
+        quantity.append(x.quantity)
     stotal=0
-    for x in products:
-        stotal=stotal+x.price
+    for x in range(len(products)):
+        stotal=stotal+products[x].price*quantity[x]
     total=stotal+50
     infor={
         'products':products,
+        'quantity':quantity,
         'stotal':stotal,
         'total':total,
     }
     return render(request,'confirmation.html',infor)
+

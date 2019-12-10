@@ -567,6 +567,14 @@ ul {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+.col-centered{
+    float: none;
+    margin: 0 auto;
+    
+}
+.centered{
+    margin: 0 auto;
+}
 
 /* line 52, /Applications/MAMP/htdocs/palash/cl/august 2019/202. Shop/202 shop html/sass/_button.scss */
 .btn_3:hover {

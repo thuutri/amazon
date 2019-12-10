@@ -109,9 +109,10 @@
                   </a>
                 </li>
                 {% for product in products %}
+                {% load get_index %}
                   <li>
                     <a href="#">{{product.product_name}}
-                      <span class="middle">x 02</span>
+                      <span class="middle">{{ quantity|get_index:forloop.counter0 }}</span>
                       <span class="last">${{product.price}}</span>
                     </a>
                   </li>

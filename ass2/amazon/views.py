@@ -13,7 +13,7 @@ from django.core.exceptions import ValidationError
 def homepage(request):
     if request.method=='POST':
         if request.POST['check']=='delete':
-            ConsistOf.objects.all().delete()
+            ConsistOf.objects.filter(_list_id=1).delete()
     infor = {
         'products': Product.objects.all(),
     }
@@ -76,7 +76,7 @@ def cart(request):
     products=[]
     quantity=[]
     totalprice=[]
-    for x in ConsistOf.objects.all():
+    for x in ConsistOf.objects.filter(_list_id=1).all():
         y=Product.objects.get(product_id=x.product_id)
         products.append(y)
         quantity.append(x.quantity)
@@ -115,7 +115,7 @@ def checkout_shipment(request):
 def checkout_payment(request):
     products=[]
     quantity=[]
-    for x in ConsistOf.objects.all():
+    for x in ConsistOf.objects.filter(_list_id=1).all():
         y=Product.objects.get(product_id=x.product_id)
         products.append(y)
         quantity.append(x.quantity)
@@ -134,7 +134,7 @@ def checkout_payment(request):
 def confirmation(request):
     products=[]
     quantity=[]
-    for x in ConsistOf.objects.all():
+    for x in ConsistOf.objects.filter(_list_id=1).all():
         y=Product.objects.get(product_id=x.product_id)
         products.append(y)
         quantity.append(x.quantity)

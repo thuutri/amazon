@@ -137,6 +137,7 @@ CREATE TABLE ConsistOf (
 	product_id 			integer						NOT NULL	REFERENCES Product(product_id),
 	account_id			integer						NOT NULL,
 	list_name			integer						NOT NULL,
+	--quantity
 	PRIMARY KEY (product_id, account_id, list_name),
 	CONSTRAINT fk_list_consist FOREIGN KEY (account_id, list_name) REFERENCES List(account_id, list_name)
 );

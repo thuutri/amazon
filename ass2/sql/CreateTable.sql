@@ -137,6 +137,7 @@ CREATE TABLE ConsistOf (
 	product_id 			integer						NOT NULL	REFERENCES Product(product_id),
 	account_id			integer						NOT NULL,
 	list_name			integer						NOT NULL,
+	--quantity
 	PRIMARY KEY (product_id, account_id, list_name),
 	CONSTRAINT fk_list_consist FOREIGN KEY (account_id, list_name) REFERENCES List(account_id, list_name)
 );
@@ -203,7 +204,7 @@ CREATE TABLE Question(
 	--serial
 	question_id			SERIAL						NOT NULL,
 	content				text						NOT NULL,
-	question_rate		smallint					NOT NULL CHECK(question_rate >= 0 AND question_rate <= 5),
+	question_rate		smallint						NOT NULL,
 	account_id			integer						REFERENCES "Member"(account_id),
 	product_id			integer						REFERENCES Product(product_id),
 	PRIMARY KEY(question_id)

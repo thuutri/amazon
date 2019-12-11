@@ -117,7 +117,7 @@ begin
 		where question.question_id = new.question_id;
 	end if;
 	
-	return null;
+	return new;
 end;
 $BODY$
 language PLPGSQL;
@@ -145,7 +145,7 @@ begin
 		where question.question_id = old.question_id;
 	end if;
 	
-	return null;
+	return old;
 end
 $BODY$
 language PLPGSQL;

@@ -145,7 +145,7 @@ begin
 		where question.question_id = old.question_id;
 	end if;
 	
-	return n
+	return null;
 end
 $BODY$
 language PLPGSQL;

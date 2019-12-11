@@ -31,7 +31,7 @@ CREATE TABLE Shipment(
 CREATE TABLE Payment(
 	payment_id			SERIAL						NOT NULL,
 	gift				VARCHAR(10),
-	billing_addr		VARCHAR(300),
+	billing_addr		VARCHAR(300)						NOT NULL,
 	paid_date			DATE,
 
 	/*

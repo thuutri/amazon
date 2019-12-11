@@ -44,9 +44,14 @@ where order_id = 10;
 --su dung index
 
 CREATE INDEX idx_review_product
-ON Review(rating)
+ON Review(rating, product_id)
 
 explain
-select *
+select product_id, AVG(rating) as rating
 from Review
-where rating >=3;
+where rating >=3 and product_id in(
+    select product_id
+    from Product
+    where product_name = 'Grim Reapers Scythe'
+)
+group by product_id;

@@ -455,16 +455,6 @@ INSERT INTO Product_picture (product_id, picture) VALUES ((select product_id fro
 
 -- Table: List
 
-'hdkhang1504@gmail.com'
-'vkthanh@gmail.com'
-'thhtri@gmail.com'
-'cdxkiet@gmail.com'
-'ldatai@gmail.com'
-'ndmtdat@gmail.com'
-'nttrung@gmail.com'
-'tdluan@gmail.com'
-'nvlong@gmail.com'
-'nvhphuc@gmail.com'
 INSERT INTO List(account_id, privacy, list_type) VALUES ((select account_id from "Member" where email = 'hdkhang1504@gmail.com'), 'true', '1'),
 	((select account_id from "Member" where email = 'vkthanh@gmail.com'), 'true', '1'),
 	((select account_id from "Member" where email = 'thhtri@gmail.com'), 'true', '1'),

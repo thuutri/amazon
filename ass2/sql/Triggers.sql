@@ -116,6 +116,8 @@ begin
 		set question_rate = question_rate - 1
 		where question.question_id = new.question_id;
 	end if;
+	
+	return null;
 end;
 $BODY$
 language PLPGSQL;
@@ -142,6 +144,8 @@ begin
 		set question_rate = question_rate + 1
 		where question.question_id = old.question_id;
 	end if;
+	
+	r
 end
 $BODY$
 language PLPGSQL;

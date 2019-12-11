@@ -90,7 +90,7 @@ CREATE TABLE List (
 	privacy 			boolean 					NOT NULL,
 
 	--integer
-	list_type 			integer,
+	list_type 			integer						NOT NULL DEFAULT(1),
 	PRIMARY KEY (account_id, list_name)
 );
 

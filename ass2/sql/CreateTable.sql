@@ -98,11 +98,11 @@ CREATE TABLE Seller (
 	account_id 			integer 					REFERENCES "Member"(account_id)		ON DELETE CASCADE,
 
 	--varchar(20)
-	phone_num 			VARCHAR(20),
+	phone_num 			VARCHAR(20)				NOT NULL,
 
 	--varchar(300)
-	addr 				VARCHAR(300),
-	country 			VARCHAR(20),
+	addr 				VARCHAR(300)				NOT NULL,
+	country 			VARCHAR(20)				NOT NULL,
 	card_num 			varchar(20) 				NOT NULL,
 	card_expr_date 		DATE 						NOT	NULL,
 	card_holder_name	VARCHAR(30)					NOT NULL,
@@ -166,7 +166,7 @@ CREATE TABLE Category(
 
 	--serial
 	category_id			SERIAL						NOT NULL,
-	category_name		VARCHAR(30),
+	category_name		VARCHAR(30)						NOT NULL,
 	PRIMARY KEY (category_id),
 	UNIQUE (category_name)
 );

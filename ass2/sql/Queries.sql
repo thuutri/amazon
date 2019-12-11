@@ -45,7 +45,7 @@ natural join Payment;
 
 
 -- 8. Select all member that has list type number 2
-select m.acc
+select m.account_id
 from "Member" as m, list as l 
 where l.account_id = m.account_id and l.list_type = '2';
 

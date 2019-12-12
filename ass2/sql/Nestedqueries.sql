@@ -44,10 +44,11 @@ where price > 50 AND product_id in (
 select "P".product_id pid,
     AVG(rating) as rating
 from Product "P" left join Review R on "P".product_id = R.product_id
-where rating >= 4 and "P".account_id in (
+where "P".account_id in (
     select account_id
     from "Member"
     where email ='hdkhang1504@gmail.com'
 )
-group by pid;
+group by pid
+having AVG(rating) >= 4;
 

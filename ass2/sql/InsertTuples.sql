@@ -203,6 +203,7 @@ INSERT INTO "Contains"(category_id, subcategory_name, product_id) VALUES  ((sele
 	((select category_id from Subcategory where subcategory_name = 'Toys'), 'Toys',(select product_id from Product where product_name = 'Long Blade Sword')),
 	((select category_id from Subcategory where subcategory_name = 'Toys'), 'Toys',(select product_id from Product where product_name = 'Battle axe')),
 	((select category_id from Subcategory where subcategory_name = 'Toys'), 'Toys',(select product_id from Product where product_name = 'Knife')),
+    ((select category_id from Subcategory where subcategory_name = 'Toys'), 'Toys',(select product_id from Product where product_name = 'adidas NMD_r2 Shoes')),
 	((select category_id from Subcategory where subcategory_name = 'Toys'), 'Toys',(select product_id from Product where product_name = 'Skeleton Double Axe'));
 
 

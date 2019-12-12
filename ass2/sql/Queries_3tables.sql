@@ -38,3 +38,14 @@ where L.account_id in (
     where email = 'nvhphuc@gmail.com'
 )
 Order By L.list_name;
+
+select "P".product_id, "P".product_name, Count(Distinct C.category_id)
+from Category C inner join Subcategory S on C.category_id = S.category_id
+    inner join "Contains" CO on C.category_id = CO.category_id and S.subcategory_name = CO.subcategory_name
+    inner join Product "P" on CO.product_id = "P".product_id
+Group by "P".product_id
+having COUNT(Distinct C.category_id) >= 2;
+
+
+INSERT INTO "Contains"(category_id, subcategory_name, product_id) VALUES
+((select category_id from Subcategory where subcategory_name = 'Toys'), 'Toys',(select product_id from Product where product_name = 'adidas NMD_r2 Shoes'));
